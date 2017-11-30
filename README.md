@@ -33,7 +33,8 @@ To keep a certain pace of contribution, we will impose at least 1 contribution p
 | 22 Dec. 2017 | George | To be define |
 
 # Reference
-https://github.com/paypal/api-standards/blob/master/api-style-guide.md
+
+[Paypal styleguide](https://github.com/paypal/api-standards/blob/master/api-style-guide.md)
 
 # Table Of Contents
 
