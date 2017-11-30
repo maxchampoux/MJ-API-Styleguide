@@ -78,11 +78,29 @@ In addition to parameters specific to each query, an export asynchronous process
 | ListId | Body | UUID | Optional | Reference de la liste cible à modifier. ID of the list to import into the current list. |
 | Action | Body | String | Optional | Action to apply on imported contacts. Values: `addforce`, `addnoforce`, `unsub`, `duplicate-override`, `duplicate-no-override` |
 
+```js
+{
+  POST https://api.mailjet.com/v3/REST/message/export?akid=123
+  "QueryName": "campaign_contacts",      
+  "CampaignId": "456",
+  "ResultNamePrefix": "toto",
+  "ExportFormat": "csv",
+} 
+```
+
+The API call creates batchjob and returns the following results:
+
 **Returns:**
 
 | Field | Type | Description |
 |-------|------|-------------|
-| JobId | UUID | Reference of the Job ID to follow. |
+| JobId | UUID | Reference of the Batch Job created. |
+
+```js
+{
+   "JobId": "123",
+}
+```
 
 
 
