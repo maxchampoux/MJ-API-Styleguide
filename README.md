@@ -16,19 +16,21 @@ Emmanuel Boisgontier, George Goranov, Ivaylo Ivanov, Maxime Champoux.
 
 * Basic Authentication
 * API Versioning (in URI, when to version?)
-* Deprecation
+* Status object
+* Retrieve a List of objects
+* Pagination
 
 ### Planning contributions
 
 Every Friday, we will organize a API Design committee in order ot validate contributions made earlier.
 To keep a certain pace of contribution, we will impose at least 1 contribution per week made by a member of the team.
 
-| Contributors | Date Committee | Topic |
+| Date Committee | Contributors | Topic |
 |---|---|---|
-| Maxime | 1 Dec. 2017 | Asynchronous export process. |
-| Ivaylo | 8 Dec. 2017 | To be define |
-| Emmanuel | 15 Dec. 2017 | To be define |
-| George| 22 Dec. 2017 | To be define |
+| 1 Dec. 2017 | Maxime | Asynchronous export process. |
+| 8 Dec. 2017 | Ivaylo | To be define |
+| 15 Dec. 2017 | Emmanuel | To be define |
+| 22 Dec. 2017 | George | To be define |
 
 # Reference
 https://github.com/paypal/api-standards/blob/master/api-style-guide.md
@@ -59,7 +61,7 @@ Method: POST
 Path: /{resource}/export
 ```
 
-In addition to parameters specific to each query, an export asynchronous process contains global parameters that are common to all exports, listed below:
+In addition to parameters specific to each resource, an asynchronous export call contains global parameters that are common to all resources, as listed below:
 
 **Global Parameters:**
 
@@ -79,12 +81,10 @@ In addition to parameters specific to each query, an export asynchronous process
 | Action | Body | String | Optional | Action to apply on imported contacts. Values: `addforce`, `addnoforce`, `unsub`, `duplicate-override`, `duplicate-no-override` |
 
 ```js
-{
-  POST https://api.mailjet.com/v3/REST/message/export?akid=123
-  "QueryName": "campaign_contacts",      
-  "CampaignId": "456",
-  "ResultNamePrefix": "toto",
+  POST https://api.mailjet.com/v3/REST/resource/export  
+{   
   "ExportFormat": "csv",
+  ...
 } 
 ```
 
@@ -102,11 +102,49 @@ The API call creates batchjob and returns the following results:
 }
 ```
 
+The progress of the export can be followed using a specific endpoint:
 
+```
+Method: GET
+Path: /{resource}/export/:job_id
+```
 
+In addition to parameters specific to each resource, an asynchronous export call contains global parameters that are common to all resources, as listed below:
 
+**Global Parameters:**
 
+| Field | In | Type | Required | Description |
+|-------|------|------|----------|-------------|
+| JobId | Query | UUID | Required | Reference of the Batch Job created. |
 
+```js
+GET https://api.mailjet.com/v3/REST/resource/Export /:job_id
+```
+
+It will return the status of the batchjob.
+
+**Returns:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| Status | String | batchjob status. “Allocated”, `Upload`, `Prepare`, `Importing`, `Completed`, `Error`. (`Abort`, `Aborted` are not used in this context.) |
+| JobStart | DateTime | Timestamp when batchjob is created. |
+| JobEnd | DateTime | Timestamp when batchjob is in permanent state.  |
+| Count | Integer | Number of items returned |
+| ResponseUrl | URL | Url of response file where you can retrieve you CSV document. |
+| Error | Error Object | Error |
+
+```js
+{
+   “Status”: "...",
+   “JobStart”: "...",
+   “JobEnd”: "...",
+   “Count”: "...",
+   “ResponseUrl”:”url of response file”
+   “Error”: “...”
+}
+
+```
 
 
 
