@@ -2,9 +2,11 @@
 Styleguide on how to implement APIs
 
 # Introduction
-As part of the team guiding the engineering-wide project, the API Design team has already and will continue to work with a huge number of development teams with the objective to ensure the broadest consistency in API design, sound usability and a myriad of other concerns.
+The Mailjet platform is a collection of reusable services that encapsulate well-defined business capabilities. Developers are encouraged to access these capabilities through Application Programming Interfaces (APIs) that enable consistent design patterns and principles. This facilitates a great developer experience and the ability to quickly compose complex business processes by combining multiple, complementary capabilities as building blocks.
 
-The goal of this styleguide is while collaborating on new projects, to detail a set of internal standards when dealing with API designs.
+Mailjet APIs follow the [RESTful][https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm] architectural style as much as possible. To support our objectives, we will develop a set of rules, standards, and conventions that apply to the design of RESTful APIs. These will be used to help design and maintain hundreds of APIs that have evolved over several years to meet the needs of a wide variety of use cases.
+
+We are working on these guidelines to ensure good API design practices in future projects led within Mailjet's organization. We have pulled extensively from the broader community and believe that it is important to give back. The documentation is as generic as possible to make it easier to incorporate into the guidelines you use in your projects. If you have any updates, suggestions, or additions that you would like to contribute, please feel free to submit a PR or create an issue.
 
 ### Contributors
 
