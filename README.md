@@ -25,7 +25,7 @@ To keep a certain pace of contribution, we will impose at least 1 contribution p
 
 | Contributors | Date Committee | Topic |
 |---|---|---|
-| Maxime | 1 Dec. 2017 | Export feature |
+| Maxime | 1 Dec. 2017 | Asynchronous export process. |
 | Ivaylo | 8 Dec. 2017 | To be define |
 | Emmanuel | 15 Dec. 2017 | To be define |
 | George| 22 Dec. 2017 | To be define |
