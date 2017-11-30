@@ -27,3 +27,6 @@ To keep a certain pace of contribution, we will impose at least 1 contribution p
 | Ivaylo | 8 Dec. 2017 | To be define |
 | Emmanuel | 15 Dec. 2017 | To be define |
 | George| 22 Dec. 2017 | To be define |
+
+# Reference
+https://github.com/paypal/api-standards/blob/master/api-style-guide.md
