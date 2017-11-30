@@ -22,7 +22,7 @@ Every Friday, we will organize a API Design committee in order ot validate contr
 To keep a certain pace of contribution, we will impose at least 1 contribution per week made by a member of the team.
 
 | Contributors | Date Committee | Topic |
-|---|---|
+|---|---|---|
 | Maxime | 1 Dec. 2017 | Export feature |
 | Ivaylo | 8 Dec. 2017 | To be define |
 | Emmanuel | 15 Dec. 2017 | To be define |
